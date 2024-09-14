@@ -5,14 +5,14 @@ import './home.css';
 import AnimeCard from '../components/AnimeCard';
 
 
-const Home = ({ animes }) => {
+const Home = ({ animes,reference }) => {
   return (
-    <section id="home" className="home active">
+    <section id="home" className="home active" ref={reference}>
       <div className="container-fluid">
         <div className="row">
           <AnimeSwiper animes={animes} />
         </div>
-        <div className="row">
+        <div className="row mb-4 mt-4">
           <div className="col-lg-6">
             <h2 className="sectionTitle">Animes on production</h2>
           </div>

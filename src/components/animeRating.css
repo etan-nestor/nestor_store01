@@ -1,0 +1,7 @@
+.animeCard .animeRating{
+    font-size: 1.3rem;
+    color: var(--thirty);
+}
+.animeCard .animeRating i{
+    margin-left: 2px;
+}

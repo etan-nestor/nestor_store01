@@ -86,5 +86,18 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    
+    color: #fff;
+    background: var(--thirty);
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    border-radius: 20px 0 20px 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.animeCard .addBag:hover{
+    background: var(--primary);
 }

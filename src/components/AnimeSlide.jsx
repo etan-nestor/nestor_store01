@@ -6,7 +6,7 @@ const AnimeSlide = ({ anime, active, toggleVideo }) => {
     return (
         <SwiperSlide>
             <div className="animeSlider">
-                <img src={anime.img} alt="Anime Image" />
+                <img src={anime.imgUrl} alt="Anime Image" />
                 <div className={`video ${active ? 'active' : undefined}`}>
                     <iframe
                         width="1280"
@@ -24,7 +24,7 @@ const AnimeSlide = ({ anime, active, toggleVideo }) => {
                     <p>{anime.description}</p>
                     <div className="buttons">
                         <a href="#" className="orderBtn">
-                            order Now
+                            View all
                         </a>
                         <a href="#" className={`watchBtn ${active ? 'active' : undefined}`} onClick={toggleVideo}>
                             <span className="pause">

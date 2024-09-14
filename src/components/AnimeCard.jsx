@@ -1,17 +1,36 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import './animeCard.css';
+import { AppContext } from '../App';
 import AnimeRating from './AnimeRating';
 
+
+const formatReleaseDate = (timestamp) => {
+  if (!timestamp || typeof timestamp !== 'object') return '';
+  const seconds = timestamp.seconds;
+  const date = new Date(seconds * 1000);
+  return date.toLocaleDateString(); 
+};
+
+
 const AnimeCard = ({ anime }) => {
+  const { library, setLibrary, bag, setBag } = useContext(AppContext);
+
+  const handleAddToLibrary = (anime) => {
+    setLibrary([...library, anime]);
+  };
+
+  // Convertir releaseDate en chaîne de caractères lisible
+  const releaseDate = formatReleaseDate(anime.releaseDate);
+
   return (
     <div className="col-xl-3 col-lg-4 col-md-6">
       <div className="animeCard">
-        <img src={anime.img} alt={anime.title} className="img-fluid" />
-        <a href="#" className="like">
+        <img src={anime.imgUrl} alt={anime.title} className="img-fluid" />
+        <a href="#" className="like" onClick={() => handleAddToLibrary(anime)}>
           <i className="bi bi-heart-fill"></i>
         </a>
         <div className="animeFeature">
-          <span className="animeType">{anime.level}</span>
+          <span className="animeType">{releaseDate}</span>
           <AnimeRating rating={anime.rating} />
         </div>
         <div className="animeTitle mt-4 mb-3">
@@ -19,10 +38,10 @@ const AnimeCard = ({ anime }) => {
         </div>
         <div className="animePrice">
           {
-            anime.discount != 0 && (
+            anime.discount !== 0 && (
               <>
                 <span className="discount">
-                  <i>{(anime.discount * 100).toFixed(2)}%</i>
+                  <i>{(((anime.discount).toFixed(2)) * 100)}%</i>
                 </span>
                 <span className="prevPrice">
                   {(anime.price).toFixed(2)}
@@ -39,7 +58,7 @@ const AnimeCard = ({ anime }) => {
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AnimeCard
+export default AnimeCard;
