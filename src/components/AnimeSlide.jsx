@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
 
 
@@ -23,17 +24,17 @@ const AnimeSlide = ({ anime, active, toggleVideo }) => {
                     <h2>{anime.title}</h2>
                     <p>{anime.description}</p>
                     <div className="buttons">
-                        <a href="#" className="orderBtn">
+                        <Link to='/' className="orderBtn">
                             View all
-                        </a>
-                        <a href="#" className={`watchBtn ${active ? 'active' : undefined}`} onClick={toggleVideo}>
+                        </Link>
+                        <Link to="/" className={`watchBtn ${active ? 'active' : undefined}`} onClick={toggleVideo}>
                             <span className="pause">
                                 <i className="bi bi-pause-fill"></i>
                             </span>
                             <span className="watch">
                                 <i className="bi bi-play-fill"></i>
                             </span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

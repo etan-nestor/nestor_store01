@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import './animeCard.css';
 import { AppContext } from '../App';
 import AnimeRating from './AnimeRating';
+import { Link } from 'react-router-dom';
 
 
 const formatReleaseDate = (timestamp) => {
@@ -26,9 +27,9 @@ const AnimeCard = ({ anime }) => {
     <div className="col-xl-3 col-lg-4 col-md-6">
       <div className="animeCard">
         <img src={anime.imgUrl} alt={anime.title} className="img-fluid" />
-        <a href="#" className="like" onClick={() => handleAddToLibrary(anime)}>
+        <Link to='/' className="like" onClick={() => handleAddToLibrary(anime)}>
           <i className="bi bi-heart-fill"></i>
-        </a>
+        </Link>
         <div className="animeFeature">
           <span className="animeType">{releaseDate}</span>
           <AnimeRating rating={anime.rating} />
@@ -53,9 +54,9 @@ const AnimeCard = ({ anime }) => {
             ${((1 - anime.discount) * anime.price).toFixed(2)}
           </span>
         </div>
-        <a href="#" className="addBag">
+        <Link to="/" className="addBag">
           <i className="bi bi-bag-plus-fill"></i>
-        </a>
+        </Link>
       </div>
     </div>
   );
