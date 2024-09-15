@@ -19,7 +19,7 @@ const AnimeSwiper = ({ animes }) => {
             effect={'coverflow'}
             grabCursor={true}
             navigation={true}
-            loop={false}
+            loop={true}
             centeredSlides={true}
             slidesPerView={'auto'}
             coverflowEffect={{

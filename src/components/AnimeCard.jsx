@@ -1,15 +1,14 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import './animeCard.css';
 import { AppContext } from '../App';
 import AnimeRating from './AnimeRating';
-import { Link } from 'react-router-dom';
 
 
 const formatReleaseDate = (timestamp) => {
   if (!timestamp || typeof timestamp !== 'object') return '';
   const seconds = timestamp.seconds;
-  const date = new Date(seconds * 1000);
-  return date.toLocaleDateString(); 
+  const date = new Date(seconds * 1000); // Convertir les secondes en millisecondes
+  return date.toLocaleDateString(); // Formater la date en chaîne de caractères lisible
 };
 
 
@@ -27,9 +26,9 @@ const AnimeCard = ({ anime }) => {
     <div className="col-xl-3 col-lg-4 col-md-6">
       <div className="animeCard">
         <img src={anime.imgUrl} alt={anime.title} className="img-fluid" />
-        <Link to='/' className="like" onClick={() => handleAddToLibrary(anime)}>
+        <a href="#" className="like" onClick={() => handleAddToLibrary(anime)}>
           <i className="bi bi-heart-fill"></i>
-        </Link>
+        </a>
         <div className="animeFeature">
           <span className="animeType">{releaseDate}</span>
           <AnimeRating rating={anime.rating} />
@@ -54,9 +53,9 @@ const AnimeCard = ({ anime }) => {
             ${((1 - anime.discount) * anime.price).toFixed(2)}
           </span>
         </div>
-        <Link to="/" className="addBag">
+        <a href="#" className="addBag">
           <i className="bi bi-bag-plus-fill"></i>
-        </Link>
+        </a>
       </div>
     </div>
   );

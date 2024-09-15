@@ -7,7 +7,7 @@ import Home from './Home';
 import Categories from './Categories';
 import MyLibrary from './MyLibrary';
 import Bag from './Bag';
-import { db } from '../firebase'; 
+import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 function Main() {
